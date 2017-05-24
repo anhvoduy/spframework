@@ -12,4 +12,15 @@ npm install -g @microsoft/generator-sharepoint
 
 2. Build first client side webpart
 
+md first-webpart
+
+cd first-webpart
+
+yo @microsoft/sharepoint
+
+Preview WebPart:
+
+gulp trust-dev-cert
+
+gulp serve
 
