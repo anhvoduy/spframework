@@ -28,8 +28,8 @@ export interface ISPLists {
 }
 
 export interface ISPList {
-  Title: string,
-  Id: string
+  Title: string;
+  Id: string;
 }
 
 export default class FirstWebPartWebPart extends BaseClientSideWebPart<IFirstWebPartWebPartProps> {
