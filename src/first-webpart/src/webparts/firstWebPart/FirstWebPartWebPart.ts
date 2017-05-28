@@ -7,43 +7,81 @@ import {
   PropertyPaneDropdown,
   PropertyPaneToggle
 } from '@microsoft/sp-webpart-base';
-import { escape } from '@microsoft/sp-lodash-subset';
 
+import { escape } from '@microsoft/sp-lodash-subset';
 import styles from './FirstWebPart.module.scss';
 import * as strings from 'firstWebPartStrings';
 import { IFirstWebPartWebPartProps } from './IFirstWebPartWebPartProps';
+import MockHttpClient from './MockHttpClient';
+import {
+  SPHttpClient,
+  SPHttpClientResponse   
+} from '@microsoft/sp-http';
+import {
+  Environment,
+  EnvironmentType
+} from '@microsoft/sp-core-library';
+
+
+export interface ISPLists {
+  value: ISPList[];
+}
+
+export interface ISPList {
+  Title: string,
+  Id: string
+}
 
 export default class FirstWebPartWebPart extends BaseClientSideWebPart<IFirstWebPartWebPartProps> {
 
   public render(): void {
+    // this.domElement.innerHTML = `
+    //   <div class="${styles.helloWorld}">
+    //     <div class="${styles.container}">
+    //       <div class="ms-Grid-row ms-bgColor-themeDark ms-fontColor-white ${styles.row}">
+    //         <div class="ms-Grid-col ms-u-lg10 ms-u-xl8 ms-u-xlPush2 ms-u-lgPush1">
+    //           <span class="ms-font-xl ms-fontColor-white">
+    //             Welcome to SharePoint Framework!
+    //           </span>                     
+    //           <p class="ms-font-l ms-fontColor-white">
+    //             Customize SharePoint experiences using Web Parts.
+    //           </p>              
+    //           <p class="ms-font-l ms-fontColor-white">
+    //             ${escape(this.properties.description)}
+    //           </p>
+    //           <p class="ms-font-l ms-fontColor-white">
+    //             ${escape(this.properties.test2)}
+    //           </p>
+    //           <p class="ms-font-l ms-fontColor-white">
+    //             Loading from ${escape(this.context.pageContext.web.title)}
+    //           </p>              
+    //           <a href="https://aka.ms/spfx" class="${styles.button}">
+    //             <span class="${styles.label}">Learn more</span>
+    //           </a>
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </div>`;
+
     this.domElement.innerHTML = `
       <div class="${styles.helloWorld}">
         <div class="${styles.container}">
           <div class="ms-Grid-row ms-bgColor-themeDark ms-fontColor-white ${styles.row}">
             <div class="ms-Grid-col ms-u-lg10 ms-u-xl8 ms-u-xlPush2 ms-u-lgPush1">
-              <span class="ms-font-xl ms-fontColor-white">
-                Welcome to SharePoint Framework!
-              </span>
-                     
-              <p class="ms-font-l ms-fontColor-white">
-                Customize SharePoint experiences using Web Parts.
-              </p>              
-              <p class="ms-font-l ms-fontColor-white">
-                ${escape(this.properties.description)}
-              </p>
-              <p class="ms-font-l ms-fontColor-white">
-                ${escape(this.properties.test2)}
-              </p>
-              <p class="ms-font-l ms-fontColor-white">Loading from 
-                ${escape(this.context.pageContext.web.title)}
-              </p>              
+              <span class="ms-font-xl ms-fontColor-white">Welcome to SharePoint!</span>
+              <p class="ms-font-l ms-fontColor-white">Customize SharePoint experiences using Web Parts.</p>
+              <p class="ms-font-l ms-fontColor-white">${escape(this.properties.description)}</p>
+              <p class="ms-font-l ms-fontColor-white">Loading from ${escape(this.context.pageContext.web.title)}</p>
               <a href="https://aka.ms/spfx" class="${styles.button}">
                 <span class="${styles.label}">Learn more</span>
               </a>
             </div>
           </div>
-        </div>
+        </div>  
+        <div id="spListContainer" />
       </div>`;
+
+    this._renderListAsync(); 
   }
 
   protected get dataVersion(): Version {
@@ -91,5 +129,52 @@ export default class FirstWebPartWebPart extends BaseClientSideWebPart<IFirstWeb
         }
       ]
     };
+  }
+
+  private _getMockListData(): Promise<ISPLists>{
+    return MockHttpClient.get()
+      .then((data: ISPList[]) => {
+        var listData: ISPLists = {value: data};
+        return listData;
+      }) as Promise<ISPLists>;
+  }
+
+  private _getListData(): Promise<ISPLists> {
+    return this.context.spHttpClient.get(this.context.pageContext.web.absoluteUrl + 
+      `/_api/web/lists?$filter=Hidden eq false`, SPHttpClient.configurations.v1)
+      .then((response: SPHttpClientResponse) => {
+        return response.json();
+      });
+  }
+
+  private _renderListAsync(): void {
+    // Local environment
+    if (Environment.type === EnvironmentType.Local) {
+      this._getMockListData().then((response) => {
+        this._renderList(response.value);
+      });
+    }
+    else if (Environment.type == EnvironmentType.SharePoint || 
+             Environment.type == EnvironmentType.ClassicSharePoint) {
+      this._getListData()
+        .then((response) => {
+          this._renderList(response.value);
+        });
+    }
+  }
+
+  private _renderList(items: ISPList[]): void {
+    let html: string = '';
+    items.forEach((item:ISPList) => {
+      html += `
+        <ul class="${styles.list}">
+            <li class="${styles.listItem}">
+                <span class="ms-font-l">${item.Title}</span>
+            </li>
+        </ul>`;
+    });
+
+    const listContainer: Element = this.domElement.querySelector('#spListContainer');
+    listContainer.innerHTML = html;
   }
 }
