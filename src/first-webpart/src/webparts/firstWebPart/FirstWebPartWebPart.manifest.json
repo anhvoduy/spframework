@@ -1,0 +1,32 @@
+{
+  "$schema": "../../../node_modules/@microsoft/sp-module-interfaces/lib/manifestSchemas/jsonSchemas/clientSideComponentManifestSchema.json",
+
+  "id": "ba9da426-01e7-4488-815f-eac850946033",
+  "alias": "FirstWebPartWebPart",
+  "componentType": "WebPart",
+  "version": "0.0.1",
+  "manifestVersion": 2,
+
+  "preconfiguredEntries": [
+    {
+      "groupId": "ba9da426-01e7-4488-815f-eac850946033",
+      "group": { 
+        "default": "Under Development" 
+      },
+      "title": { 
+        "default": "FirstWebPart" 
+      },
+      "description": { 
+        "default": "First WebPart" 
+      },
+      "officeFabricIconFontName": "Page",
+      "properties": {
+        "description": "First WebPart",
+        "test": "Multi-line text field",
+        "test1": true,
+        "test2": "2",
+        "test3": true
+      }
+    } 
+  ]
+}
