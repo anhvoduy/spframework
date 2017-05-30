@@ -1,6 +1,6 @@
 {
   "workingDir": "./temp/deploy/",
-  "account": "<!-- STORAGE ACCOUNT NAME -->",
-  "container": "first-webpart",
-  "accessKey": "<!-- ACCESS KEY -->"
+  "account": "spfxvoduyanh",
+  "container": "spfx-firstwebpart",
+  "accessKey": "QlESG7bY3KyClbU36zbZ4FJK6VzhTRPOLW7HCipEzZuq8+eBUpgHpVyKHRX/Q143R0giMTGtPyp1WVKmlN4HGQ=="
 }

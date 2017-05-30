@@ -24,3 +24,14 @@ gulp trust-dev-cert
 
 gulp serve
 
+3. Package Solution
+
+gulp package-solution
+
+gulp serve --nobrowser
+
+gulp --ship
+
+gulp bundle --ship
+
+gulp package-solution --ship
