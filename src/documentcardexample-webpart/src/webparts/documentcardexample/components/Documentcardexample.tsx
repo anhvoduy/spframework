@@ -30,6 +30,7 @@ export default class Documentcardexample extends React.Component<IDocumentcardex
       </div>
     );
   }*/
+  
 
   public render(): JSX.Element {
       const previewProps: IDocumentCardPreviewProps = {
