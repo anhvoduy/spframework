@@ -1,0 +1,13 @@
+{
+  "entries": [
+    {
+      "entry": "./lib/webparts/documentcardexample/DocumentcardexampleWebPart.js",
+      "manifest": "./src/webparts/documentcardexample/DocumentcardexampleWebPart.manifest.json",
+      "outputPath": "./dist/documentcardexample.bundle.js"
+    }
+  ],
+  "externals": {},
+  "localizedResources": {
+    "documentcardexampleStrings": "webparts/documentcardexample/loc/{locale}.js"
+  }
+}

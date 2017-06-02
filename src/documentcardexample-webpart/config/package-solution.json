@@ -1,0 +1,10 @@
+{
+  "solution": {
+    "name": "documentcardexample-client-side-solution",
+    "id": "84b215b1-9c77-47cb-9ec7-f2ec4565f06b",
+    "version": "1.0.0.0"
+  },
+  "paths": {
+    "zippedPackage": "solution/documentcardexample.sppkg"
+  }
+}
