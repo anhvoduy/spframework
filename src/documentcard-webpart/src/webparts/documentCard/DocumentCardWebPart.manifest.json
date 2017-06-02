@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../node_modules/@microsoft/sp-module-interfaces/lib/manifestSchemas/jsonSchemas/clientSideComponentManifestSchema.json",
+
+  "id": "fd3f1b0c-8ca2-435d-9c33-ff59494d0d0a",
+  "alias": "DocumentCardWebPart",
+  "componentType": "WebPart",
+  "version": "0.0.1",
+  "manifestVersion": 2,
+
+  "preconfiguredEntries": [{
+    "groupId": "fd3f1b0c-8ca2-435d-9c33-ff59494d0d0a",
+    "group": { "default": "Under Development" },
+    "title": { "default": "DocumentCard" },
+    "description": { "default": "Document Card" },
+    "officeFabricIconFontName": "Page",
+    "properties": {
+      "description": "DocumentCard"
+    }
+  }]
+}
