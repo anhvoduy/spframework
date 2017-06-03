@@ -10,6 +10,8 @@ import styles from './NgsampleWebpart.module.scss';
 import * as strings from 'ngsampleWebpartStrings';
 import { INgsampleWebpartWebPartProps } from './INgsampleWebpartWebPartProps';
 
+import * as angular from 'angular';
+
 export default class NgsampleWebpartWebPart extends BaseClientSideWebPart<INgsampleWebpartWebPartProps> {
 
   public render(): void {
@@ -18,8 +20,8 @@ export default class NgsampleWebpartWebPart extends BaseClientSideWebPart<INgsam
         <div class="${styles.container}">
           <div class="ms-Grid-row ms-bgColor-themeDark ms-fontColor-white ${styles.row}">
             <div class="ms-Grid-col ms-u-lg10 ms-u-xl8 ms-u-xlPush2 ms-u-lgPush1">
-              <span class="ms-font-xl ms-fontColor-white">Welcome to SharePoint!</span>
-              <p class="ms-font-l ms-fontColor-white">Customize SharePoint experiences using Web Parts.</p>
+              <span class="ms-font-xl ms-fontColor-white">Welcome to SharePoint & Angular!</span>
+              <p class="ms-font-l ms-fontColor-white">Customize SharePoint experiences & Angular development using Web Parts.</p>
               <p class="ms-font-l ms-fontColor-white">${escape(this.properties.description)}</p>
               <a href="https://aka.ms/spfx" class="${styles.button}">
                 <span class="${styles.label}">Learn more</span>
@@ -28,6 +30,9 @@ export default class NgsampleWebpartWebPart extends BaseClientSideWebPart<INgsam
           </div>
         </div>
       </div>`;
+
+      angular.module('helloworld', []);
+      angular.bootstrap(this.domElement, ['helloworld']);
   }
 
   protected get dataVersion(): Version {
