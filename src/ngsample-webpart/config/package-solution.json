@@ -1,0 +1,10 @@
+{
+  "solution": {
+    "name": "ngsample-webpart-client-side-solution",
+    "id": "0f3299c0-e193-4df9-ab77-6528f10f28c0",
+    "version": "1.0.0.0"
+  },
+  "paths": {
+    "zippedPackage": "solution/ngsample-webpart.sppkg"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../node_modules/@microsoft/sp-module-interfaces/lib/manifestSchemas/jsonSchemas/clientSideComponentManifestSchema.json",
+
+  "id": "8361a349-c64f-446f-a462-0567da603240",
+  "alias": "NgsampleWebpartWebPart",
+  "componentType": "WebPart",
+  "version": "0.0.1",
+  "manifestVersion": 2,
+
+  "preconfiguredEntries": [{
+    "groupId": "8361a349-c64f-446f-a462-0567da603240",
+    "group": { "default": "Under Development" },
+    "title": { "default": "ngsample-webpart" },
+    "description": { "default": "ng-sample webpart" },
+    "officeFabricIconFontName": "Page",
+    "properties": {
+      "description": "ngsample-webpart"
+    }
+  }]
+}
