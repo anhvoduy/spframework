@@ -6,7 +6,16 @@
       "outputPath": "./dist/ngsample-webpart.bundle.js"
     }
   ],
-  "externals": {},
+  "externals": {
+    "angular": {
+      "path": "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js",
+      "globalName": "angular"
+    }
+    // "angular": {
+    //   "path": "node_modules/angular/angular.min.js",
+    //   "globalName": "angular"
+    // }
+  },
   "localizedResources": {
     "ngsampleWebpartStrings": "webparts/ngsampleWebpart/loc/{locale}.js"
   }
