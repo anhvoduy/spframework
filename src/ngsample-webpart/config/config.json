@@ -1,0 +1,13 @@
+{
+  "entries": [
+    {
+      "entry": "./lib/webparts/ngsampleWebpart/NgsampleWebpartWebPart.js",
+      "manifest": "./src/webparts/ngsampleWebpart/NgsampleWebpartWebPart.manifest.json",
+      "outputPath": "./dist/ngsample-webpart.bundle.js"
+    }
+  ],
+  "externals": {},
+  "localizedResources": {
+    "ngsampleWebpartStrings": "webparts/ngsampleWebpart/loc/{locale}.js"
+  }
+}
