@@ -1,0 +1,8 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "libraryName": "documentcardexample",
+    "framework": "react",
+    "version": "1.0.2",
+    "libraryId": "84b215b1-9c77-47cb-9ec7-f2ec4565f06b"
+  }
+}
