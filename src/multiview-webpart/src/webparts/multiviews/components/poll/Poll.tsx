@@ -3,8 +3,8 @@ import { Button, PrimaryButton, IButtonProps } from 'office-ui-fabric-react';
 
 import { IPollProps } from './IPollProps';
 import { IPollState } from './IPollState';
-import { Vote } from '../vote';
-import { Results } from '../results';
+import Vote from '../vote';
+import Results from '../results';
 
 class Poll extends React.Component<IPollProps, IPollState> {
   constructor(props: IPollProps) {
@@ -18,7 +18,7 @@ class Poll extends React.Component<IPollProps, IPollState> {
     this.voteNow = this.voteNow.bind(this);
   }
 
-  protected componentWillReceiveProps(nextProps: IPollProps, nextContext: any): void {
+  public componentWillReceiveProps(nextProps: IPollProps, nextContext: any): void {
     this.setState({
       showResults: true
     });

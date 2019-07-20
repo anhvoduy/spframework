@@ -1,1 +1,2 @@
-export * from './Vote';
+import Vote from './Vote';
+export default Vote;

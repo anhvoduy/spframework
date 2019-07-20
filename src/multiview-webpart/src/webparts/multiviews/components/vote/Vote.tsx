@@ -5,7 +5,7 @@ import { IVoteOption } from '../../services';
 
 import { Spinner, Button, ButtonType, ChoiceGroup, IChoiceGroupOption } from 'office-ui-fabric-react';
 
-export class Vote extends React.Component<IVoteProps, IVoteState> {
+export default class Vote extends React.Component<IVoteProps, IVoteState> {
   constructor(props: IVoteProps) {
     super(props);
 

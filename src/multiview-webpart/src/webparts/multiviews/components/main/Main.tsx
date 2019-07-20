@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { IMainProps } from './IMainProps';
-import { Config } from '../config';
-import { Poll } from '../poll';
+import Config from '../config';
+import Poll from '../poll';
 
 import styles from './Main.module.scss';
 
@@ -12,7 +12,6 @@ export class Main extends React.Component<IMainProps, {}> {
 
   public render(): JSX.Element {
     const { needsConfiguration, pollTitle, pollDescription, configureWebPart } = this.props;
-
     return (
       <div className={styles.poll}>
         { needsConfiguration &&

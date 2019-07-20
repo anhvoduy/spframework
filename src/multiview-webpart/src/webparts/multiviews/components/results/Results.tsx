@@ -20,7 +20,7 @@ interface IColorInfo {
   pointHoverBorderColor: string;
 }
 
-export class Results extends React.Component<IResultsProps, IResultsState> {
+export default class Results extends React.Component<IResultsProps, IResultsState> {
   private useExcanvas: boolean = typeof (window as any).G_vmlCanvasManager === 'object' &&
   (window as any).G_vmlCanvasManager !== null &&
   typeof (window as any).G_vmlCanvasManager.initElement === 'function';

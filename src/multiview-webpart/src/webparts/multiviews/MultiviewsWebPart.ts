@@ -15,6 +15,8 @@ import { IMultiviewsProps } from './components/multiview/IMultiviewsProps';
 
 import { IPollService, PollService, MockPollService } from './services/index';
 
+import { Main, IMainProps } from './components/main';
+
 export default class MultiviewsWebPart extends BaseClientSideWebPart<IMultiviewsWebPartProps> {
   private pollService: IPollService;
 
@@ -30,13 +32,17 @@ export default class MultiviewsWebPart extends BaseClientSideWebPart<IMultiviews
   }
 
   public render(): void {
-    const element: React.ReactElement<IMultiviewsProps > = React.createElement(
-      Multiviews,
+    const element: React.ReactElement<IMainProps > = React.createElement(
+      Main,
       {
         description: this.properties.description,
         listName: this.properties.listName,
         pollTitle: this.properties.pollTitle,
-        pollDescription: this.properties.pollDescription
+        pollDescription: this.properties.pollDescription,
+        needsConfiguration: this.needsConfiguration(),
+        displayMode: this.displayMode,
+        configureWebPart: this.configureWebPart,
+        pollService: this.pollService
       }
     );
 
@@ -87,11 +93,15 @@ export default class MultiviewsWebPart extends BaseClientSideWebPart<IMultiviews
     };
   }
 
+  protected get disableReactivePropertyChanges(): boolean {
+    return true;
+  }
+
   private needsConfiguration(): boolean {
     return this.properties.listName === null ||
-      this.properties.listName.trim().length === 0 ||
+      this.properties.listName === null ||
       this.properties.pollTitle === null ||
-      this.properties.pollTitle.trim().length === 0;
+      this.properties.pollTitle === null;
   }
 
   private configureWebPart(): void {

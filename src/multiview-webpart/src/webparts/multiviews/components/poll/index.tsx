@@ -1,1 +1,2 @@
-export * from './Poll';
+import Poll from './Poll';
+export default Poll;
