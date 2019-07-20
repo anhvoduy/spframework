@@ -9,8 +9,9 @@ import {
 
 import * as strings from 'MultiviewsWebPartStrings';
 import { IMultiviewsWebPartProps } from './IMultiviewsWebPartProps';
-import Multiviews from './components/Multiviews';
-import { IMultiviewsProps } from './components/IMultiviewsProps';
+
+import Multiviews from './components/multiview';
+import { IMultiviewsProps } from './components/multiview/IMultiviewsProps';
 
 import { IPollService, PollService, MockPollService } from './services/index';
 
@@ -35,7 +36,7 @@ export default class MultiviewsWebPart extends BaseClientSideWebPart<IMultiviews
         description: this.properties.description,
         listName: this.properties.listName,
         pollTitle: this.properties.pollTitle,
-        pollDescription: this.properties.pollDescription,
+        pollDescription: this.properties.pollDescription
       }
     );
 
@@ -84,6 +85,13 @@ export default class MultiviewsWebPart extends BaseClientSideWebPart<IMultiviews
         }
       ]
     };
+  }
+
+  private needsConfiguration(): boolean {
+    return this.properties.listName === null ||
+      this.properties.listName.trim().length === 0 ||
+      this.properties.pollTitle === null ||
+      this.properties.pollTitle.trim().length === 0;
   }
 
   private configureWebPart(): void {
