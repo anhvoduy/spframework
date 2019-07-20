@@ -90,6 +90,24 @@ export default class MultiviewsWebPart extends BaseClientSideWebPart<IMultiviews
     };
   }
 
+  private validatePollTitle(pollTitle: string): string {
+    if (!pollTitle || pollTitle.trim().length === 0) {
+      return 'Please enter title of this poll';
+    }
+    else {
+      return '';
+    }
+  }
+
+  private validateListName(listName: string): string {
+    if (!listName || listName.trim().length === 0) {
+      return 'Please enter the name of the list';
+    }
+    else {
+      return '';
+    }
+  }
+
   protected get disableReactivePropertyChanges(): boolean {
     return true;
   }
