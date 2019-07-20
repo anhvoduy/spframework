@@ -10,9 +10,6 @@ import {
 import * as strings from 'MultiviewsWebPartStrings';
 import { IMultiviewsWebPartProps } from './IMultiviewsWebPartProps';
 
-import Multiviews from './components/multiview';
-import { IMultiviewsProps } from './components/multiview/IMultiviewsProps';
-
 import { IPollService, PollService, MockPollService } from './services/index';
 
 import { Main, IMainProps } from './components/main';
