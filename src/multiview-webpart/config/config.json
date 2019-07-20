@@ -13,6 +13,7 @@
   },
   "externals": {},
   "localizedResources": {
-    "MultiviewsWebPartStrings": "lib/webparts/multiviews/loc/{locale}.js"
+    "MultiviewsWebPartStrings": "lib/webparts/multiviews/loc/{locale}.js",
+    "ControlStrings": "node_modules/@pnp/spfx-controls-react/lib/loc/{locale}.js"
   }
 }
