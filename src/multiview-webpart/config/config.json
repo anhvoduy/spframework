@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "multiviews-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/multiviews/MultiviewsWebPart.js",
+          "manifest": "./src/webparts/multiviews/MultiviewsWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "MultiviewsWebPartStrings": "lib/webparts/multiviews/loc/{locale}.js"
+  }
+}
