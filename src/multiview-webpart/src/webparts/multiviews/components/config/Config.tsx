@@ -14,7 +14,7 @@ class Config extends React.Component<IConfigProps, {}> {
             iconText="Poll"
             description="Find out what others think."
             buttonLabel="Configure"
-            // onAdd={ this.props.configure } 
+            onConfigure={ this.props.configure } 
             />
         }
         { this.props.displayMode === DisplayMode.Read &&

@@ -4,10 +4,10 @@ import { IResultsState } from './IResultsState';
 import { Spinner } from 'office-ui-fabric-react';
 import { IVoteResult } from '../../services';
 
-//import { HorizontalBar } from 'react-chartjs-2';
+import { HorizontalBar } from 'react-chartjs-2';
 //const defaults = require('react-chartjs-2').defaults;
-// const Chart : any = require('chart.js');
-// const defaults : any = Chart.defaults;
+const Chart : any = require('chart.js');
+const defaults : any = Chart.defaults;
 
 import { merge } from '@microsoft/sp-lodash-subset';
 
@@ -41,58 +41,58 @@ export default class Results extends React.Component<IResultsProps, IResultsStat
   }
 
   public componentDidMount(): void {
-    // // from angular-chart.js
-    // defaults.global.tooltips.mode = 'label';
-    // defaults.global.elements.line.borderWidth = 2;
-    // defaults.global.elements.rectangle.borderWidth = 2;
-    // defaults.global.legend.display = false;
-    // defaults.global.colors = [
-    //   '#97BBCD', // blue
-    //   '#DCDCDC', // light grey
-    //   '#F7464A', // red
-    //   '#46BFBD', // green
-    //   '#FDB45C', // yellow
-    //   '#949FB1', // grey
-    //   '#4D5360'  // dark grey
-    // ];
-    // this.convertedColors = defaults.global.colors.map(this.convertColor);
-    // // -- from angular-chart.js
+    // from angular-chart.js
+    defaults.global.tooltips.mode = 'label';
+    defaults.global.elements.line.borderWidth = 2;
+    defaults.global.elements.rectangle.borderWidth = 2;
+    defaults.global.legend.display = false;
+    defaults.global.colors = [
+      '#97BBCD', // blue
+      '#DCDCDC', // light grey
+      '#F7464A', // red
+      '#46BFBD', // green
+      '#FDB45C', // yellow
+      '#949FB1', // grey
+      '#4D5360'  // dark grey
+    ];
+    this.convertedColors = defaults.global.colors.map(this.convertColor);
+    // -- from angular-chart.js
 
-    // this.data = {
-    //   labels: [],
-    //   datasets: [merge({}, this.convertedColors[0], {
-    //     label: 'Number of votes',
-    //     data: []
-    //   })]
-    // };
-    // this.options = {
-    //   scales: {
-    //     xAxes: [{
-    //       gridLines: {
-    //         display: false
-    //       },
-    //       scaleLabel: {
-    //         display: true,
-    //         labelString: 'Number of votes'
-    //       }
-    //     }]
-    //   }
-    // };
+    this.data = {
+      labels: [],
+      datasets: [merge({}, this.convertedColors[0], {
+        label: 'Number of votes',
+        data: []
+      })]
+    };
+    this.options = {
+      scales: {
+        xAxes: [{
+          gridLines: {
+            display: false
+          },
+          scaleLabel: {
+            display: true,
+            labelString: 'Number of votes'
+          }
+        }]
+      }
+    };
 
-    // this.props.pollService.getResults(this.props.listName)
-    //   .then((results: IVoteResult[]): void => {
-    //     this.setState((prevState: IResultsState, props: IResultsProps): IResultsState => {
-    //       prevState.results = results;
-    //       prevState.loading = false;
-    //       return prevState;
-    //     });
-    //   }, (error: any): void => {
-    //     this.setState((prevState: IResultsState, props: IResultsProps): IResultsState => {
-    //       prevState.error = error.data['odata.error'].message.value;
-    //       prevState.loading = false;
-    //       return prevState;
-    //     });
-    //   });
+    this.props.pollService.getResults(this.props.listName)
+      .then((results: IVoteResult[]): void => {
+        this.setState((prevState: IResultsState, props: IResultsProps): IResultsState => {
+          prevState.results = results;
+          prevState.loading = false;
+          return prevState;
+        });
+      }, (error: any): void => {
+        this.setState((prevState: IResultsState, props: IResultsProps): IResultsState => {
+          prevState.error = error.data['odata.error'].message.value;
+          prevState.loading = false;
+          return prevState;
+        });
+      });
   }
 
   public render(): JSX.Element {
@@ -113,8 +113,7 @@ export default class Results extends React.Component<IResultsProps, IResultsStat
           <Spinner label={'Loading results...'} />
         }
         {this.state.loading === false &&
-            //<HorizontalBar data={this.data} options={this.options} />
-            <div>HorizontalBar</div>
+          <HorizontalBar data={this.data} options={this.options} />
         }
       </div>
     );
