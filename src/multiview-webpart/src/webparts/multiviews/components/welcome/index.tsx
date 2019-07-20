@@ -12,6 +12,9 @@ class Welcome extends React.Component<IWelcomeProps, {}> {
               <span className={ styles.title }>Welcome to SharePoint Online!</span>
               <p className={ styles.subTitle }>Customize SharePoint experiences using Web Parts.</p>
               <p className={ styles.description }>{escape(this.props.title)}</p>
+              <p className={ styles.description }>{escape(this.props.listName)}</p>
+              <p className={ styles.description }>{escape(this.props.pollTitle)}</p>
+              <p className={ styles.description }>{escape(this.props.pollDescription)}</p>
               <a href="https://aka.ms/spfx" className={ styles.button }>
                 <span className={ styles.label }>Learn more</span>
               </a>
