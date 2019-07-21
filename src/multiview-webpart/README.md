@@ -24,3 +24,11 @@ gulp test - TODO
 gulp serve - TODO
 gulp bundle - TODO
 gulp package-solution - TODO
+
+
+### Package Solution
+gulp serve
+gulp build
+gulp bundle --ship
+gulp deploy-azure-storage (if deploy to Azure CDN instead of Office 365 CDN)
+gulp package-solution --ship
