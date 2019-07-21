@@ -1,4 +1,4 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/write-manifests.schema.json",
-  "cdnBasePath": "https://demo2018.blob.core.windows.net/spfx-multiview"
+  "cdnBasePath": "https://spfx2018.azureedge.net/spfx-multiview"
 }
