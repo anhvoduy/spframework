@@ -2,6 +2,6 @@
   "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/deploy-azure-storage.schema.json",
   "workingDir": "./temp/deploy/",
   "account": "demo2018",
-  "container": "multiviews",
+  "container": "spfx-multiview",
   "accessKey": "3xlhl9TDX2QbvY4RQZKCw3rWzJSNd/+P4AYrpYPLK23ppV+3+qhp7cY/OMWxK/SEANbIVqtscaAjrpOtweWOxA=="
 }
