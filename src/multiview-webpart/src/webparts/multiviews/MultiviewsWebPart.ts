@@ -18,11 +18,12 @@ export default class MultiviewsWebPart extends BaseClientSideWebPart<IMultiviews
   private pollService: IPollService;
 
   protected onInit(): Promise<void> {
-    if (DEBUG && Environment.type === EnvironmentType.Local) {
-      this.pollService = new MockPollService();
-    } else {
-      this.pollService = new PollService(this.context);
-    }
+    this.pollService = new MockPollService();
+    // if (DEBUG && Environment.type === EnvironmentType.Local) {
+    //   this.pollService = new MockPollService();
+    // } else {
+    //   this.pollService = new PollService(this.context);
+    // }
 
     this.configureWebPart = this.configureWebPart.bind(this);
     return super.onInit();
