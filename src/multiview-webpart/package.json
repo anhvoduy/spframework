@@ -16,13 +16,17 @@
     "@types/react": "16.7.22",
     "@types/react-dom": "16.8.0",
     "office-ui-fabric-react": "6.143.0",
+    "@microsoft/sp-application-base": "1.8.2",
     "@microsoft/sp-core-library": "1.8.2",
     "@microsoft/sp-property-pane": "1.8.2",
     "@microsoft/sp-webpart-base": "1.8.2",
     "@microsoft/sp-lodash-subset": "1.8.2",
     "@microsoft/sp-office-ui-fabric-core": "1.8.2",
     "@types/webpack-env": "1.13.1",
-    "@types/es6-promise": "0.0.33"
+    "@types/es6-promise": "0.0.33",
+    "@pnp/spfx-controls-react": "1.14.0",
+    "react-chartjs-2": "2.7.6",
+    "chart.js": "2.8.0"
   },
   "resolutions": {
     "@types/react": "16.7.22"
